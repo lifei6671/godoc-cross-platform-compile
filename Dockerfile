@@ -1,6 +1,6 @@
 FROM golang:1.8.1-alpine
 
-RUN apk add git
+RUN apk add --update git
 
 ENV TAG=0.1
 
