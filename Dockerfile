@@ -1,6 +1,6 @@
 FROM golang:1.8.1-alpine
 
-RUN apk add --update bash git make gcc
+RUN apk add --update bash git
 
 ENV TAG=0.1
 
@@ -11,8 +11,6 @@ RUN mkdir -p /go/src/github.com/lifei6671 && \
 WORKDIR /go/src/github.com/lifei6671/godoc
 
 RUN chmod +x start.sh
-
-
 
 RUN  go get -d ./... && \
     go get github.com/mitchellh/gox && \
