@@ -2,7 +2,7 @@ FROM golang:1.8.1-alpine
 
 RUN apk add --update git
 
-ENV TAG=0.1
+ENV TAG=0.1.1
 
 RUN mkdir -p /go/src/github.com/lifei6671 && \
     cd /go/src/github.com/lifei6671 && \
