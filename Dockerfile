@@ -18,7 +18,6 @@ RUN  go get -d ./... && \
     gox -os "windows" -arch amd64 -ldflags="-H=windowsgui -w -X main.VERSION=$TAG -X 'main.BUILD_TIME=`date`' -X 'main.GO_VERSION=`go version`'" && \
     rm -rf commands controllers models modules routers tasks vendor docs search data utils graphics .git Godeps uploads/* .gitignore .travis.yml Dockerfile gide.yaml LICENSE main.go README.md conf/enumerate.go conf/mail.go install.lock && \
     tar -zcvf godoc.tar.gz . && \
-    mv godoc.tar.gz uploads && \
-    rm -rf godoc.tar.gz
+    mv godoc.tar.gz uploads
 
 CMD ["./start.sh"]
