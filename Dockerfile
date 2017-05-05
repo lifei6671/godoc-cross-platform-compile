@@ -1,6 +1,7 @@
-FROM golang:1.8.1-alpine
+FROM golang:1.8.1
 
-RUN apk add --update git
+RUN apt-get update && apt-get install -y --no-install-recommends \
+	git
 
 ENV TAG=0.1.2
 
