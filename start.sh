@@ -21,7 +21,7 @@ if [ ! -z $MYSQL_PORT_3306_TCP_PORT ] ; then
 fi
 
 if [ ! -z $MYSQL_INSTANCE_NAME ] ; then
-    sed -i 's/^db_database.*/db_database='$MYSQL_INSTANCE_NAME'/g' conf/app.conf
+    sed -i 's#^db_database.*#db_database='$MYSQL_INSTANCE_NAME'#g' conf/app.conf
 fi
 
 if [ ! -z $MYSQL_USERNAME ] ; then
