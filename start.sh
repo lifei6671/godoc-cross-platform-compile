@@ -3,8 +3,8 @@ set -e
 
 cd /go/src/github.com/lifei6671/godoc/
 
-if [ ! -f "conf/app.conf" ] ; then
-    cp conf/app.conf.example conf/app.conf
+if [ ! -f "/go/src/github.com/lifei6671/godoc/conf/app.conf" ] ; then
+    cp /go/src/github.com/lifei6671/godoc/conf/app.conf.example /go/src/github.com/lifei6671/godoc/conf/app.conf
 	sed -i "s#^db_adapter=.*#db_adapter=mysql#g" conf/app.conf
 fi
 
