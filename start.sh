@@ -5,7 +5,11 @@ cd /go/src/github.com/lifei6671/godoc/
 
 if [ ! -f "conf/app.conf" ] ; then
     cp conf/app.conf.example conf/app.conf
-	sed -i 's/^db_adapter=.*/db_adapter=mysql/g' conf/app.conf
+	sed -i 's#^db_adapter=.*#db_adapter=mysql#g' conf/app.conf
+fi
+
+if [ ! -z $DB_ADAPTER ]; then
+	sed -i 's#^db_adapter=.*#db_adapter='$DB_ADAPTER'#g' conf/app.conf
 fi
 
 if [ ! -z $MYSQL_PORT_3306_TCP_ADDR ] ; then
