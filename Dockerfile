@@ -8,7 +8,9 @@ ENV TAG=0.3
 
 RUN mkdir -p /go/src/github.com/lifei6671 && \
     cd /go/src/github.com/lifei6671 && \
-    git clone https://github.com/lifei6671/godoc.git
+    git clone https://github.com/lifei6671/godoc.git 
+	
+ADD start.sh /go/src/github.com/lifei6671/godoc
 
 WORKDIR /go/src/github.com/lifei6671/godoc
 
