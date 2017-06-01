@@ -32,8 +32,20 @@ if [ ! -z $MYSQL_PASSWORD ] ; then
     sed -i 's/^db_password.*/db_password='$MYSQL_PASSWORD'/g' conf/app.conf
 fi
 
-if [ ! -z $HTTP_PORT] ; then
+if [ ! -z $HTTP_PORT ] ; then
     sed -i 's/^httpport.*/httpport='$HTTP_PORT'/g' conf/app.conf
+fi
+
+if [ ! -z $CDNJS ]; then
+    sed -i "s#^cdnjs=.*#cdnjs=$CDNJS#g" conf/app.conf
+fi
+
+if [ ! -z $CDNCSS ]; then
+    sed -i "s#^cdncss=.*#cdncss=$CDNCSS#g" conf/app.conf
+fi
+
+if [ ! -z $CDN ]; then
+    sed -i "s#^cdn=.*#cdn=$CDN#g" conf/app.conf
 fi
 
 sed -i 's/^runmode.*/runmode=prod/g' conf/app.conf
