@@ -1,10 +1,10 @@
 #!/bin/sh
 set -e
 
-cd /go/src/github.com/lifei6671/godoc/
+cd /go/src/github.com/lifei6671/mindoc/
 
-if [ ! -f "/go/src/github.com/lifei6671/godoc/conf/app.conf" ] ; then
-    cp /go/src/github.com/lifei6671/godoc/conf/app.conf.example /go/src/github.com/lifei6671/godoc/conf/app.conf
+if [ ! -f "/go/src/github.com/lifei6671/mindoc/conf/app.conf" ] ; then
+    cp /go/src/github.com/lifei6671/mindoc/conf/app.conf.example /go/src/github.com/lifei6671/mindoc/conf/app.conf
 	sed -i "s#^db_adapter=.*#db_adapter=mysql#g" conf/app.conf
 fi
 
@@ -50,6 +50,6 @@ fi
 
 sed -i 's/^runmode.*/runmode=prod/g' conf/app.conf
 
-/go/src/github.com/lifei6671/godoc/godoc_linux_amd64 install
-/go/src/github.com/lifei6671/godoc/godoc_linux_amd64 migrate
-/go/src/github.com/lifei6671/godoc/godoc_linux_amd64
+/go/src/github.com/lifei6671/mindoc/mindoc_linux_amd64 install
+/go/src/github.com/lifei6671/mindoc/mindoc_linux_amd64 migrate
+/go/src/github.com/lifei6671/mindoc/mindoc_linux_amd64
