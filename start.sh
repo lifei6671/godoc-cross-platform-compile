@@ -5,7 +5,8 @@ cd /go/src/github.com/lifei6671/mindoc/
 
 if [ ! -f "/go/src/github.com/lifei6671/mindoc/conf/app.conf" ] ; then
     cp /go/src/github.com/lifei6671/mindoc/conf/app.conf.example /go/src/github.com/lifei6671/mindoc/conf/app.conf
-	sed -i "s#^db_adapter=.*#db_adapter=mysql#g" conf/app.conf
+	sed -i "s#^db_adapter=.*#db_adapter=sqlite3#g" conf/app.conf
+	sed -i "s#^db_database.*#db_database=./database/mindoc.db#g" conf/app.conf
 fi
 
 if [ ! -z $DB_ADAPTER ]; then
