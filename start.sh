@@ -40,6 +40,9 @@ fi
 if [ ! -z $CDNJS ]; then
     sed -i "s#^cdnjs=.*#cdnjs=$CDNJS#g" conf/app.conf
 fi
+if [ ! -z $CDNIMG ]; then
+    sed -i "s#^cdnimg=.*#cdnimg=$CDNIMG#g" conf/app.conf
+fi
 
 if [ ! -z $CDNCSS ]; then
     sed -i "s#^cdncss=.*#cdncss=$CDNCSS#g" conf/app.conf
