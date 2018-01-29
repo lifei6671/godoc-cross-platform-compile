@@ -4,7 +4,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	git \
 	gcc \
 	python \
-	wget \
 	python-apsw \
     python-beautifulsoup \
     python-chardet \
@@ -30,12 +29,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python-pyqt5.qtsvg \
     python-pyqt5.qtwebkit \
     python-routes \
-    python2.7
+    python2.7 \
+	calibre
 
-
-RUN wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | \
-    python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()" && \
-    rm -rf /tmp/*
 
 RUN ebook-convert --version
 
