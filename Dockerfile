@@ -4,10 +4,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	git \
 	gcc \
 	python \
-	curl \
+	wget \
 	tar
 
-RUN curl -L https://calibre-ebook.com/dist/src | tar -xvJ  && cd calibre* && python setup.py install
+RUN wget -nv https://calibre-ebook.com/dist/src | tar -xvJ  && cd calibre* && python setup.py install
 
 RUN ebook-convert --version
 
