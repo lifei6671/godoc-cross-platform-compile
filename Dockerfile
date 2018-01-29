@@ -2,38 +2,8 @@ FROM golang:1.9
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	git \
-	gcc \
-	python \
-	python-apsw \
-    python-beautifulsoup \
-    python-chardet \
-    python-cherrypy3 \
-    python-cssselect \
-    python-cssutils \
-    python-dateutil \
-    python-dbus \
-    python-dnspython \
-    python-feedparser \
-    python-imaging \
-    python-lxml \
-    python-markdown \
-    python-mechanize \
-    python-netifaces \
-    python-pil \
-    python-pkg-resources \
-    python-psutil \
-    python-pygments \
-    python-pyparsing \
-    # python-qt4 \
-    python-pyqt5 \
-    python-pyqt5.qtsvg \
-    python-pyqt5.qtwebkit \
-    python-routes \
-    python2.7 \
-	calibre
+	gcc 
 
-
-RUN ebook-convert --version
 
 ENV TAG=0.7.2
 
