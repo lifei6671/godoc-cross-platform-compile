@@ -5,9 +5,37 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	gcc \
 	python \
 	wget \
-	tar
+	python-apsw \
+    python-beautifulsoup \
+    python-chardet \
+    python-cherrypy3 \
+    python-cssselect \
+    python-cssutils \
+    python-dateutil \
+    python-dbus \
+    python-dnspython \
+    python-feedparser \
+    python-imaging \
+    python-lxml \
+    python-markdown \
+    python-mechanize \
+    python-netifaces \
+    python-pil \
+    python-pkg-resources \
+    python-psutil \
+    python-pygments \
+    python-pyparsing \
+    # python-qt4 \
+    python-pyqt5 \
+    python-pyqt5.qtsvg \
+    python-pyqt5.qtwebkit \
+    python-routes \
+    python2.7
 
-RUN wget -nv https://calibre-ebook.com/dist/src | tar -xvJ  && cd calibre* && python setup.py install
+
+RUN wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | \
+    python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()" && \
+    rm -rf /tmp/*
 
 RUN ebook-convert --version
 
