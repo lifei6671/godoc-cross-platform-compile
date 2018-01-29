@@ -24,6 +24,9 @@ RUN  go get -d ./... && \
 
 ENV	CALIBRE_INSTALLER_LOCAL_URL=http://cdn.iminho.me/calibre-3.16.0-x86_64.txz
 
-RUN wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
+RUN cd /opt && \
+wget --no-check-certificate -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('/opt/', True)"
+
+RUN ebook-convert --version
 
 CMD ["./start.sh"]
