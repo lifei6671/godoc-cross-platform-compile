@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	python \
 	curl
 
-RUN curl -L https://calibre-ebook.com/dist/src | tar xvJ  && cd calibre* && python2 setup.py install
+RUN curl -L https://calibre-ebook.com/dist/src | tar -xvJ  && cd calibre* && python2 setup.py install
 
 RUN ebook-convert --version
 
