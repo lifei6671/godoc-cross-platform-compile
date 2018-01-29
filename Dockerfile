@@ -6,7 +6,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	python \
 	wget
 
-ENV TAG=0.3
+RUN cd /opt && \
+wget --no-check-certificate -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('/opt/', True)"
+
+RUN ebook-convert --version
+
+ENV TAG=0.7.2
 
 RUN mkdir -p /go/src/github.com/lifei6671 && \
     cd /go/src/github.com/lifei6671 && \
@@ -18,9 +23,7 @@ WORKDIR /go/src/github.com/lifei6671/mindoc
 
 ENV	CALIBRE_INSTALLER_LOCAL_URL=http://cdn.iminho.me/calibre-3.16.0-x86_64.txz
 
-RUN wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
 
-RUN ebook-convert --version
 
 RUN chmod +x start.sh
 
