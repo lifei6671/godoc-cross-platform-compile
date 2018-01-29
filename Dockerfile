@@ -4,10 +4,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	git \
 	gcc \
 	python \
-	wget
+	curl
 
-RUN cd /opt && \
-wget --no-check-certificate -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('/opt/', True)"
+RUN curl -L https://calibre-ebook.com/dist/src | tar xvJ  && cd calibre* && python2 setup.py install
 
 RUN ebook-convert --version
 
