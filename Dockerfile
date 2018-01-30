@@ -8,12 +8,12 @@ ENV GLIBC_VERSION 2.26-r0
 # Download and install glibc
 RUN apk add --update curl  \
   ca-certificates \
-   mesa-gl \
+  mesa-gl \
   python \
   qt5-qtbase-x11 \
   wget \
   xdg-utils \
-  xz && \
+  xz \
   bash \
   git \
   make \
