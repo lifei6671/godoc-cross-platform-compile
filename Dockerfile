@@ -14,6 +14,8 @@ RUN apk add --update curl && \
 
 RUN apk add --update bash git make gcc g++ libxrender libxcomposite
 
+ADD simsun.ttc /usr/share/fonts/chinese/TrueType/
+
 # install calibre
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/opt/calibre/lib
 ENV PATH $PATH:/opt/calibre/bin
