@@ -1,4 +1,4 @@
-FROM golang:1.9.3-alpine3.6
+FROM golang:1.9.3
 
 ADD simsun.ttc /usr/share/fonts/chinese/TrueType/
 ADD start.sh /go/src/github.com/lifei6671/mindoc
@@ -6,7 +6,7 @@ ADD start.sh /go/src/github.com/lifei6671/mindoc
 ENV GLIBC_VERSION 2.26-r0
 
 # Download and install glibc
-RUN apk add --update curl  \
+RUN apt-get update && apt-get install -y curl  \
   ca-certificates \
   mesa-gl \
   python \
@@ -19,20 +19,10 @@ RUN apk add --update curl  \
   make \
   gcc \
   g++ \
+  libc6 \
   libxrender \
-  libxcomposite && \
-  curl -Lo /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub && \
-  curl -Lo glibc.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk" && \
-  curl -Lo glibc-bin.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk" && \
-  apk add glibc-bin.apk glibc.apk && \
-  /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib && \
-  echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
-  apk del curl && \
-  rm -rf glibc.apk glibc-bin.apk /var/cache/apk/*
-
-RUN apk add --update
-
-
+  libxcomposite
+  
 # install calibre
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/opt/calibre/lib
 ENV PATH $PATH:/opt/calibre/bin
