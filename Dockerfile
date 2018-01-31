@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y curl  \
   wget \
   xdg-utils \
   git \
+  bash \
   make \
   gcc \
   g++ \
