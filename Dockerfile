@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y curl  \
   xdg-utils \
   git \
   bash \
+  xz-utils \
   make \
   gcc \
   g++ \
