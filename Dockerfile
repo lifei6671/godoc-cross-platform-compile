@@ -8,20 +8,16 @@ ENV GLIBC_VERSION 2.26-r0
 # Download and install glibc
 RUN apt-get update && apt-get install -y curl  \
   ca-certificates \
-  mesa-gl \
   python \
-  qt5-qtbase-x11 \
   wget \
   xdg-utils \
-  xz \
-  bash \
   git \
   make \
   gcc \
   g++ \
   libc6 \
-  libxrender \
-  libxcomposite
+  libxrender-dev \
+  libxcomposite-dev
   
 # install calibre
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/opt/calibre/lib
