@@ -20,7 +20,17 @@ RUN apt-get update && apt-get install -y curl  \
   g++ \
   libc6 \
   libxrender-dev \
-  libxcomposite-dev
+  libxcomposite-dev \
+  fonts-liberation \
+  imagemagick \
+  libjs-mathjax \
+  poppler-utils \
+  python-beautifulsoup \
+  python-pil \
+  python-pyqt5 \
+  python-pyqt5.qtsvg \
+  python-pyqt5.qtwebkit \
+  xdg-utils
   
 # install calibre
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/opt/calibre/lib
