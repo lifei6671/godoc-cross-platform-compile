@@ -1,44 +1,8 @@
 FROM golang:1.9.3
 
-
-ADD simsun.ttc /usr/share/fonts/chinese/TrueType/
-
-
-ENV GLIBC_VERSION 2.26-r0
-
 # Download and install glibc
-RUN apt-get update && apt-get install -y curl  \
-  ca-certificates \
-  python \
-  wget \
-  xdg-utils \
-  git \
-  bash \
-  xz-utils \
-  make \
-  gcc \
-  g++ \
-  libc6 \
-  libxrender-dev \
-  libxcomposite-dev \
-  fonts-liberation \
-  imagemagick \
-  libjs-mathjax \
-  poppler-utils \
-  python-beautifulsoup \
-  python-pil \
-  python-pyqt5 \
-  python-pyqt5.qtsvg \
-  python-pyqt5.qtwebkit \
-  xdg-utils
-  
-# install calibre
-ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/opt/calibre/lib
-ENV PATH $PATH:/opt/calibre/bin
-ENV CALIBRE_INSTALLER_SOURCE_CODE_URL https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py
-RUN wget -O- ${CALIBRE_INSTALLER_SOURCE_CODE_URL} | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True)" && \
-    rm -rf /tmp/calibre-installer-cache
-
+RUN apt-get update && apt-get install -y git \
+  gcc 
 
 RUN mkdir -p /go/src/github.com/lifei6671/ && cd /go/src/github.com/lifei6671/ && git clone https://github.com/lifei6671/mindoc.git && cd mindoc \
 	go get -d ./... && \
