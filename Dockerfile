@@ -9,6 +9,8 @@ RUN apk add --update && \
     bash \
     ca-certificates \
     gcc \
+    g++ \
+    make \
     mesa-gl \
     python \
     qt5-qtbase-x11 \
@@ -18,8 +20,7 @@ RUN apk add --update && \
     libxcomposite \
     xz \
     curl \
-    git \
-    gcc 
+    git 
 
 RUN curl -Lo /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub && \
     curl -Lo glibc.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk" && \
