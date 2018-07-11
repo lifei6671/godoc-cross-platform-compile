@@ -1,4 +1,4 @@
-FROM golang:1.9.3
+FROM golang:1.10.3
 
 # Download and install glibc
 RUN apt-get update && apt-get install -y git \
