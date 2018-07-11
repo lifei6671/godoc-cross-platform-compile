@@ -16,10 +16,10 @@ RUN apk add --update && \
     xdg-utils \
     libxrender \
     libxcomposite \
-    xz && \
-    curl && \
-    git && \
-    gcc && \
+    xz \
+    curl \
+    git \
+    gcc \
     curl -Lo /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub && \
     curl -Lo glibc.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk" && \
     curl -Lo glibc-bin.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk" && \
