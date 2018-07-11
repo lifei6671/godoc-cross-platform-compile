@@ -1,10 +1,9 @@
 FROM golang:1.10.3
 
 # Download and install glibc
-RUN apt-get update && apt-get install -y git \
-  gcc 
+RUN apt-get update && apt-get install -y git gcc 
 
-RUN RUN go get -u github.com/golang/dep/cmd/dep
+RUN go get -u github.com/golang/dep/cmd/dep
 
 RUN mkdir -p /go/src/github.com/lifei6671/ && cd /go/src/github.com/lifei6671/ && git clone https://github.com/lifei6671/mindoc.git && cd mindoc \
 	dep ensure  && \
